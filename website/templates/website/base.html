@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}AI-Solutions{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+  <nav class="navbar">
+    <a href="{% url 'home' %}" class="brand">AI<span>Solutions</span></a>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'solutions' %}">Solutions</a>
+      <a href="{% url 'case_studies' %}">Past Solutions</a>
+      <a href="{% url 'feedback' %}">Feedback</a>
+      <a href="{% url 'articles' %}">Articles</a>
+      <a href="{% url 'gallery' %}">Gallery</a>
+      <a href="{% url 'events' %}">Events</a>
+      <a href="{% url 'assistant' %}">Assistant</a>
+      <a href="{% url 'contact' %}" class="nav-cta">Contact Us</a>
+      <a href="{% url 'admin_login' %}">Admin</a>
+    </div>
+  </nav>
+</header>
+
+{% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+      <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+  <div>
+    <h3>AI-Solutions</h3>
+    <p>AI-powered virtual assistants and rapid software prototyping for modern organisations.</p>
+  </div>
+  <div>
+    <p><strong>Prototype Notice:</strong> This is a student prototype for demonstration.</p>
+    <p>© 2026 AI-Solutions</p>
+  </div>
+</footer>
+<script src="{% static 'website/js/main.js' %}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

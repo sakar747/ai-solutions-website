@@ -1,0 +1,18 @@
+{% extends 'website/base.html' %}
+{% block title %}Articles | AI-Solutions{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <p class="eyebrow">Insights</p>
+  <h1>Articles promoting AI-Solutions</h1>
+  <p>Short articles about AI, prototyping and the digital employee experience.</p>
+</section>
+<section class="section grid cards-3">
+  {% for article in articles %}
+  <article class="card">
+    <p class="date">{{ article.date }}</p>
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.summary }}</p>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

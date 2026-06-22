@@ -1,0 +1,48 @@
+{% extends 'website/base.html' %}
+{% block title %}AI-Solutions | Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">AI-powered software solutions</p>
+    <h1>Affordable AI prototypes for better digital employee experiences.</h1>
+    <p>AI-Solutions helps organisations explore virtual assistants, workflow automation and rapid software prototypes that solve real workplace problems.</p>
+    <div class="hero-actions">
+      <a href="{% url 'solutions' %}" class="btn primary">Explore Solutions</a>
+      <a href="{% url 'contact' %}" class="btn secondary">Submit Job Requirement</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h3>What customers can do</h3>
+    <ul>
+      <li>View software solutions</li>
+      <li>Read past industry case studies</li>
+      <li>Ask the virtual assistant</li>
+      <li>Submit a project inquiry</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <p class="eyebrow">Featured services</p>
+    <h2>Software solutions offered</h2>
+  </div>
+  <div class="grid cards-3">
+    {% for service in services %}
+    <article class="card">
+      <h3>{{ service.name }}</h3>
+      <p>{{ service.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="split-section">
+  <div>
+    <p class="eyebrow">Client inquiries</p>
+    <h2>Have a software job requirement?</h2>
+    <p>Potential customers can submit their job details using the Contact Us form. The admin area records and counts customer inquiries for AI-Solutions.</p>
+  </div>
+  <a href="{% url 'contact' %}" class="btn primary">Contact AI-Solutions</a>
+</section>
+{% endblock %}

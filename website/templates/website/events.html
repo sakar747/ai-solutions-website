@@ -1,0 +1,19 @@
+{% extends 'website/base.html' %}
+{% block title %}Upcoming Events | AI-Solutions{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <p class="eyebrow">Events</p>
+  <h1>Upcoming promotional events</h1>
+  <p>Customers can view upcoming demonstrations and company events.</p>
+</section>
+<section class="section grid cards-2">
+  {% for event in events %}
+  <article class="card event-card">
+    <p class="date">{{ event.date }} • {{ event.mode }}</p>
+    <h2>{{ event.name }}</h2>
+    <p>{{ event.description }}</p>
+    <a href="{% url 'contact' %}" class="text-link">Register interest →</a>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

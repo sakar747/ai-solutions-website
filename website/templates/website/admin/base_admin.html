@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Admin | AI-Solutions{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+</head>
+<body class="admin-body">
+<header class="admin-header">
+  <a href="{% url 'admin_dashboard' %}" class="brand">AI<span>Admin</span></a>
+  <nav>
+    <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+    <a href="{% url 'admin_inquiries' %}">Inquiries</a>
+    <a href="{% url 'home' %}">Public Site</a>
+    <a href="{% url 'admin_logout' %}">Logout</a>
+  </nav>
+</header>
+{% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+      <div class="message {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+{% endif %}
+<main class="admin-main">
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

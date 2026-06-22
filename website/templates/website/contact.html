@@ -1,0 +1,46 @@
+{% extends 'website/base.html' %}
+{% block title %}Contact Us | AI-Solutions{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <p class="eyebrow">Contact Us</p>
+  <h1>Submit your job requirement</h1>
+  <p>Customers do not need an account or password. Complete the form and AI-Solutions will review your inquiry.</p>
+</section>
+<section class="form-section">
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <div class="form-grid">
+      <label>Full Name *
+        <input type="text" name="name" value="{{ form_data.name|default:'' }}" required>
+      </label>
+      <label>Email Address *
+        <input type="email" name="email" value="{{ form_data.email|default:'' }}" required>
+      </label>
+      <label>Phone Number *
+        <input type="text" name="phone" value="{{ form_data.phone|default:'' }}" required>
+      </label>
+      <label>Company Name *
+        <input type="text" name="company_name" value="{{ form_data.company_name|default:'' }}" required>
+      </label>
+      <label>Country *
+        <input type="text" name="country" value="{{ form_data.country|default:'' }}" required>
+      </label>
+      <label>Service Interest
+        <select name="service_interest">
+          <option value="">Select if known</option>
+          {% for service in services %}
+            <option value="{{ service.name }}" {% if form_data.service_interest == service.name %}selected{% endif %}>{{ service.name }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </div>
+    <label>Job Title *
+      <input type="text" name="job_title" value="{{ form_data.job_title|default:'' }}" placeholder="Example: AI assistant prototype for customer service" required>
+    </label>
+    <label>Job Details *
+      <textarea name="job_details" rows="7" placeholder="Describe the software support, prototype or AI solution you are interested in..." required>{{ form_data.job_details|default:'' }}</textarea>
+    </label>
+    <button type="submit" class="btn primary">Submit Inquiry</button>
+  </form>
+</section>
+{% endblock %}

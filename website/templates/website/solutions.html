@@ -1,0 +1,18 @@
+{% extends 'website/base.html' %}
+{% block title %}Software Solutions | AI-Solutions{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <p class="eyebrow">Solutions</p>
+  <h1>AI and software services for modern organisations</h1>
+  <p>Explore the main software solutions offered by AI-Solutions.</p>
+</section>
+<section class="section grid cards-2">
+  {% for service in services %}
+  <article class="card tall-card">
+    <h2>{{ service.name }}</h2>
+    <p>{{ service.summary }}</p>
+    <p>{{ service.details }}</p>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

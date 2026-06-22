@@ -1,0 +1,18 @@
+{% extends 'website/base.html' %}
+{% block title %}Past Solutions | AI-Solutions{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <p class="eyebrow">Past solutions</p>
+  <h1>Industry examples and case studies</h1>
+  <p>Examples of how AI-Solutions can support different industries with software prototypes.</p>
+</section>
+<section class="timeline">
+  {% for item in case_studies %}
+  <article class="timeline-item">
+    <span>{{ item.industry }}</span>
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.summary }}</p>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}

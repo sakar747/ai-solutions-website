@@ -1,0 +1,41 @@
+{% extends 'website/admin/base_admin.html' %}
+{% block title %}Inquiry Details | AI-Solutions Admin{% endblock %}
+{% block content %}
+<section class="admin-title">
+  <h1>Inquiry Details</h1>
+  <p>Reference: <strong>{{ inquiry.reference }}</strong></p>
+</section>
+<section class="detail-layout">
+  <div class="admin-card">
+    <h2>Customer Information</h2>
+    <dl class="detail-list">
+      <dt>Name</dt><dd>{{ inquiry.name }}</dd>
+      <dt>Email</dt><dd>{{ inquiry.email }}</dd>
+      <dt>Phone</dt><dd>{{ inquiry.phone }}</dd>
+      <dt>Company</dt><dd>{{ inquiry.company_name }}</dd>
+      <dt>Country</dt><dd>{{ inquiry.country }}</dd>
+      <dt>Service Interest</dt><dd>{{ inquiry.service_interest|default:'Not specified' }}</dd>
+      <dt>Job Title</dt><dd>{{ inquiry.job_title }}</dd>
+      <dt>Submitted</dt><dd>{{ inquiry.created_at }}</dd>
+    </dl>
+    <h3>Job Details</h3>
+    <p class="text-box">{{ inquiry.job_details }}</p>
+  </div>
+  <form method="post" class="admin-card update-card">
+    {% csrf_token %}
+    <h2>Update Inquiry</h2>
+    <label>Status
+      <select name="status">
+        <option value="New" {% if inquiry.status == 'New' %}selected{% endif %}>New</option>
+        <option value="Reviewed" {% if inquiry.status == 'Reviewed' %}selected{% endif %}>Reviewed</option>
+        <option value="Contacted" {% if inquiry.status == 'Contacted' %}selected{% endif %}>Contacted</option>
+        <option value="Closed" {% if inquiry.status == 'Closed' %}selected{% endif %}>Closed</option>
+      </select>
+    </label>
+    <label>Admin Note
+      <textarea name="admin_note" rows="6">{{ inquiry.admin_note|default:'' }}</textarea>
+    </label>
+    <button class="btn primary" type="submit">Save Update</button>
+  </form>
+</section>
+{% endblock %}
