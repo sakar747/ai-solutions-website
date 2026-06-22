@@ -2,54 +2,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}AI-Solutions{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>AI Solutions | Intelligent Business Software</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+
 <header class="site-header">
-  <nav class="navbar">
-    <a href="{% url 'home' %}" class="brand">AI<span>Solutions</span></a>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="{% url 'home' %}">Home</a>
-      <a href="{% url 'solutions' %}">Solutions</a>
-      <a href="{% url 'case_studies' %}">Past Solutions</a>
-      <a href="{% url 'feedback' %}">Feedback</a>
-      <a href="{% url 'articles' %}">Articles</a>
-      <a href="{% url 'gallery' %}">Gallery</a>
-      <a href="{% url 'events' %}">Events</a>
-      <a href="{% url 'assistant' %}">Assistant</a>
-      <a href="{% url 'contact' %}" class="nav-cta">Contact Us</a>
-      <a href="{% url 'admin_login' %}">Admin</a>
+    <div class="container nav-wrapper">
+        <a href="{% url 'home' %}" class="logo">
+            <span class="logo-icon">◆</span>
+            AI Solutions
+        </a>
+
+        <nav class="nav-menu">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'solutions' %}">Solutions</a>
+            <a href="{% url 'case_studies' %}">Case Studies</a>
+            <a href="{% url 'articles' %}">Articles</a>
+            <a href="{% url 'gallery' %}">Gallery</a>
+            <a href="{% url 'events' %}">Events</a>
+            <a href="{% url 'feedback' %}">Feedback</a>
+            <a href="{% url 'contact' %}" class="nav-cta">Request Consultation</a>
+        </nav>
     </div>
-  </nav>
 </header>
 
-{% if messages %}
-  <div class="messages">
-    {% for message in messages %}
-      <div class="message {{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-  </div>
-{% endif %}
-
 <main>
-  {% block content %}{% endblock %}
+    {% if messages %}
+        <div class="container messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
 </main>
 
-<footer class="footer">
-  <div>
-    <h3>AI-Solutions</h3>
-    <p>AI-powered virtual assistants and rapid software prototyping for modern organisations.</p>
-  </div>
-  <div>
-    <p><strong>Prototype Notice:</strong> This is a student prototype for demonstration.</p>
-    <p>© 2026 AI-Solutions</p>
-  </div>
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>AI Solutions</h3>
+            <p>Professional AI-powered software, automation and digital systems for modern businesses.</p>
+        </div>
+
+        <div>
+            <h4>Company</h4>
+            <a href="{% url 'solutions' %}">Solutions</a>
+            <a href="{% url 'case_studies' %}">Case Studies</a>
+            <a href="{% url 'articles' %}">Articles</a>
+        </div>
+
+        <div>
+            <h4>Support</h4>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'feedback' %}">Feedback</a>
+            <a href="{% url 'admin_login' %}">Admin Login</a>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>Email: contact@aisolutions.com</p>
+            <p>Location: Kathmandu, Nepal</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 AI Solutions. All rights reserved.
+    </div>
 </footer>
-<script src="{% static 'website/js/main.js' %}"></script>
-{% block scripts %}{% endblock %}
+
 </body>
 </html>
