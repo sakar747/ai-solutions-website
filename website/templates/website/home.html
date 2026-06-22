@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'website/base.html' %}
 {% load static %}
 
 {% block content %}
@@ -14,8 +14,8 @@
             </p>
 
             <div class="hero-actions">
-                <a href="{% url 'solutions' %}" class="btn btn-primary">Explore Solutions</a>
-                <a href="{% url 'contact' %}" class="btn btn-outline">Request Consultation</a>
+                <a href="/solutions/" class="btn btn-primary">Explore Solutions</a>
+                <a href="/contact/" class="btn btn-outline">Request Consultation</a>
             </div>
 
             <div class="hero-stats">
@@ -74,7 +74,10 @@
         <div class="section-heading">
             <span class="eyebrow">What We Do</span>
             <h2>Professional AI and software services for growing businesses.</h2>
-            <p>From intelligent chatbots to custom dashboards, our solutions are designed to improve efficiency and customer engagement.</p>
+            <p>
+                From intelligent chatbots to custom dashboards, our solutions are designed
+                to improve efficiency and customer engagement.
+            </p>
         </div>
 
         <div class="card-grid">
@@ -152,7 +155,7 @@
             <h2>Have a project idea?</h2>
             <p>Tell us what you need and our team will review your inquiry.</p>
         </div>
-        <a href="{% url 'contact' %}" class="btn btn-light">Submit Inquiry</a>
+        <a href="/contact/" class="btn btn-light">Submit Inquiry</a>
     </div>
 </section>
 
