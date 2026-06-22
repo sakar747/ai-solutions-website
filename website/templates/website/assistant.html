@@ -1,0 +1,25 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">AI Virtual Assistant</span><h1>Get guided support before submitting your inquiry.</h1><p>The assistant suggests a service category and next step based on your project need.</p></div></section>
+<section class="section"><div class="container chat-layout">
+    <div class="chat-panel">
+        <div class="chat-header"><div><h2>AI Solutions Assistant</h2><p>Ask about chatbots, automation, dashboards, websites or costs.</p></div><span class="online-dot"></span></div>
+        <div id="chatMessages" class="chat-messages">
+            <div class="bot-message"><strong>Assistant:</strong> Hello! Tell me what kind of AI or software system you need.</div>
+        </div>
+        <form id="chatForm" class="chat-form">
+            <input type="text" id="chatInput" placeholder="Example: I need a chatbot for my website" required>
+            <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+    </div>
+    <div class="assistant-tips">
+        <h3>Try asking:</h3>
+        <button onclick="quickAsk('I need a chatbot for my website')">I need a chatbot</button>
+        <button onclick="quickAsk('I want to automate my business workflow')">Automation help</button>
+        <button onclick="quickAsk('I need a dashboard for my business data')">Dashboard idea</button>
+        <button onclick="quickAsk('How much will a web application cost?')">Project cost</button>
+    </div>
+</div></section>
+<script src="{% static 'website/js/chatbot.js' %}"></script>
+{% endblock %}

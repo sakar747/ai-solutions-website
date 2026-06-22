@@ -1,0 +1,12 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Admin Access</span><h1>Secure admin login.</h1><p>Admin users can review and manage submitted client inquiries.</p></div></section>
+<section class="section"><div class="container auth-wrap">
+    <form method="post" class="professional-form auth-card">{% csrf_token %}
+        <h2>Admin Login</h2>
+        <div><label>Username</label><input type="text" name="username" required></div>
+        <div><label>Password</label><input type="password" name="password" required></div>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+</div></section>
+{% endblock %}

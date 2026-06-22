@@ -1,0 +1,24 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<section class="admin-hero"><div class="container admin-top"><div><span class="eyebrow">Admin Dashboard</span><h1>Client Inquiry Management</h1></div><a href="/admin-logout/" class="btn btn-outline">Logout</a></div></section>
+<section class="section"><div class="container">
+    <div class="dashboard-cards">
+        <div class="dashboard-card"><span>Total</span><strong>{{ stats.total }}</strong></div>
+        <div class="dashboard-card"><span>New</span><strong>{{ stats.new }}</strong></div>
+        <div class="dashboard-card"><span>In Progress</span><strong>{{ stats.progress }}</strong></div>
+        <div class="dashboard-card"><span>Completed</span><strong>{{ stats.completed }}</strong></div>
+    </div>
+    <form method="get" class="filter-bar">
+        <select name="status"><option value="">All Status</option><option {% if status_filter == 'New' %}selected{% endif %}>New</option><option {% if status_filter == 'In Progress' %}selected{% endif %}>In Progress</option><option {% if status_filter == 'Completed' %}selected{% endif %}>Completed</option><option {% if status_filter == 'Closed' %}selected{% endif %}>Closed</option></select>
+        <select name="service"><option value="">All Services</option><option {% if service_filter == 'AI Chatbot Development' %}selected{% endif %}>AI Chatbot Development</option><option {% if service_filter == 'Business Automation' %}selected{% endif %}>Business Automation</option><option {% if service_filter == 'Web Application Development' %}selected{% endif %}>Web Application Development</option><option {% if service_filter == 'Data Dashboard' %}selected{% endif %}>Data Dashboard</option></select>
+        <button class="btn btn-primary" type="submit">Filter</button>
+    </form>
+    <div class="table-wrap"><table class="admin-table"><thead><tr><th>Reference</th><th>Name</th><th>Service</th><th>Status</th><th>Priority</th><th>Action</th></tr></thead><tbody>
+        {% for inquiry in inquiries %}
+            <tr><td>{{ inquiry.reference_number }}</td><td>{{ inquiry.name }}</td><td>{{ inquiry.service_interest }}</td><td><span class="status-pill">{{ inquiry.status }}</span></td><td>{{ inquiry.priority }}</td><td><a href="/admin-inquiry/{{ inquiry.id }}/" class="table-link">View</a></td></tr>
+        {% empty %}
+            <tr><td colspan="6">No inquiries found.</td></tr>
+        {% endfor %}
+    </tbody></table></div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<section class="page-hero"><div class="container"><span class="eyebrow">Feedback</span><h1>What clients say about intelligent digital systems.</h1><p>Share feedback and view recent comments from users and clients.</p></div></section>
+<section class="section"><div class="container feedback-layout">
+    <div>
+        <h2>Recent Feedback</h2>
+        <div class="feedback-grid">
+            {% for item in feedback_rows %}
+                <div class="feedback-card"><div class="stars">★★★★★</div><p>{{ item.message }}</p><strong>{{ item.name }}</strong></div>
+            {% empty %}
+                <div class="feedback-card"><div class="stars">★★★★★</div><p>“The AI assistant and dashboard concept makes client management much easier.”</p><strong>Demo Client</strong></div>
+                <div class="feedback-card"><div class="stars">★★★★★</div><p>“A professional system for collecting and organising business inquiries.”</p><strong>Business User</strong></div>
+            {% endfor %}
+        </div>
+    </div>
+    <form method="post" class="professional-form">{% csrf_token %}
+        <h2>Leave Feedback</h2>
+        <div><label>Name</label><input name="name" required></div>
+        <div><label>Email</label><input type="email" name="email"></div>
+        <div><label>Rating</label><select name="rating"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+        <div><label>Message</label><textarea name="message" rows="5" required></textarea></div>
+        <button class="btn btn-primary" type="submit">Submit Feedback</button>
+    </form>
+</div></section>
+{% endblock %}
