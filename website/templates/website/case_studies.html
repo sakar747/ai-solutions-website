@@ -1,18 +1,59 @@
-{% extends 'website/base.html' %}
-{% block title %}Past Solutions | AI-Solutions{% endblock %}
+{% extends 'base.html' %}
+
 {% block content %}
+
 <section class="page-hero">
-  <p class="eyebrow">Past solutions</p>
-  <h1>Industry examples and case studies</h1>
-  <p>Examples of how AI-Solutions can support different industries with software prototypes.</p>
+    <div class="container">
+        <span class="eyebrow">Case Studies</span>
+        <h1>Example projects showing how AI Solutions supports businesses.</h1>
+        <p>These sample case studies demonstrate the type of systems our platform is designed to support.</p>
+    </div>
 </section>
-<section class="timeline">
-  {% for item in case_studies %}
-  <article class="timeline-item">
-    <span>{{ item.industry }}</span>
-    <h2>{{ item.title }}</h2>
-    <p>{{ item.summary }}</p>
-  </article>
-  {% endfor %}
+
+<section class="section">
+    <div class="container case-grid">
+        <div class="case-card">
+            <span class="case-tag">Customer Support</span>
+            <h3>AI Customer Support Assistant</h3>
+            <p>
+                A business needed faster customer responses. An AI assistant was designed to answer common questions,
+                collect user details and guide clients to the correct service.
+            </p>
+            <ul>
+                <li>Reduced repeated support questions</li>
+                <li>Improved customer guidance</li>
+                <li>Connected inquiry form with admin dashboard</li>
+            </ul>
+        </div>
+
+        <div class="case-card">
+            <span class="case-tag">Management System</span>
+            <h3>Digital Inquiry Management Platform</h3>
+            <p>
+                A company required a system to record and manage client project requests. A secure admin dashboard
+                was developed to view, filter and update inquiry status.
+            </p>
+            <ul>
+                <li>Centralised inquiry records</li>
+                <li>Status tracking for admin</li>
+                <li>MongoDB-based storage</li>
+            </ul>
+        </div>
+
+        <div class="case-card">
+            <span class="case-tag">Business Automation</span>
+            <h3>Automation Dashboard for Business Operations</h3>
+            <p>
+                A small organisation wanted to monitor incoming client requests and service categories.
+                A dashboard was designed to support decision-making and faster follow-up.
+            </p>
+            <ul>
+                <li>Improved visibility of inquiries</li>
+                <li>Simple admin workflow</li>
+                <li>Professional reporting structure</li>
+            </ul>
+        </div>
+    </div>
 </section>
+
 {% endblock %}
