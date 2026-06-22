@@ -1,0 +1,76 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero-section">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <span class="eyebrow">AI-Powered Business Technology</span>
+            <h1>Build smarter business systems with intelligent software solutions.</h1>
+            <p>AI Solutions helps organisations automate workflows, improve customer service, manage client inquiries and develop modern digital platforms using AI and web technologies.</p>
+            <div class="hero-actions">
+                <a href="/solutions/" class="btn btn-primary">Explore Solutions</a>
+                <a href="/contact/" class="btn btn-outline">Request Consultation</a>
+            </div>
+            <div class="hero-stats">
+                <div><strong>24/7</strong><span>Virtual Support</span></div>
+                <div><strong>AI</strong><span>Assistant Ready</span></div>
+                <div><strong>100%</strong><span>Digital Inquiry Flow</span></div>
+            </div>
+        </div>
+        <div class="hero-card">
+            <div class="dashboard-preview">
+                <div class="preview-header"><span></span><span></span><span></span></div>
+                <div class="preview-panel">
+                    <h4>Client Inquiry Dashboard</h4>
+                    <div class="metric-row">
+                        <div><strong>42</strong><span>Total Inquiries</span></div>
+                        <div><strong>18</strong><span>New Leads</span></div>
+                    </div>
+                    <div class="ai-box"><p><strong>AI Assistant:</strong></p><p>“This client may need an AI chatbot and automation solution.”</p></div>
+                    <div class="status-list"><span class="badge new">New Inquiry</span><span class="badge progress">In Progress</span><span class="badge done">Completed</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">What We Do</span>
+            <h2>Professional AI and software services for growing businesses.</h2>
+            <p>From intelligent chatbots to custom dashboards, our solutions are designed to improve efficiency and customer engagement.</p>
+        </div>
+        <div class="card-grid">
+            <div class="service-card"><div class="card-icon">🤖</div><h3>AI Chatbot Development</h3><p>Build smart virtual assistants that answer customer queries and guide users through services.</p></div>
+            <div class="service-card"><div class="card-icon">⚙️</div><h3>Business Automation</h3><p>Automate repetitive business processes such as inquiry handling, follow-ups and reporting.</p></div>
+            <div class="service-card"><div class="card-icon">💻</div><h3>Web Application Development</h3><p>Create professional web platforms with secure forms, dashboards and database integration.</p></div>
+            <div class="service-card"><div class="card-icon">📊</div><h3>Data Dashboards</h3><p>Turn business data into clear dashboards for decision making and performance tracking.</p></div>
+        </div>
+    </div>
+</section>
+<section class="section light-section">
+    <div class="container split-section">
+        <div>
+            <span class="eyebrow">Why Choose Us</span>
+            <h2>Designed for real business problems, not just basic websites.</h2>
+            <p>Our system combines a professional company website with inquiry management, chatbot support and an admin dashboard. This helps businesses collect, organise and respond to client requirements more effectively.</p>
+            <ul class="feature-list">
+                <li>Smart AI virtual assistant for client guidance</li>
+                <li>Digital inquiry form connected to MongoDB</li>
+                <li>Secure admin dashboard for managing inquiries</li>
+                <li>Professional responsive website design</li>
+            </ul>
+        </div>
+        <div class="process-card">
+            <h3>Client Inquiry Process</h3>
+            <div class="process-step"><span>1</span><p>Client explores solutions and services.</p></div>
+            <div class="process-step"><span>2</span><p>AI assistant guides the client to the right category.</p></div>
+            <div class="process-step"><span>3</span><p>Client submits a project inquiry through the contact form.</p></div>
+            <div class="process-step"><span>4</span><p>Admin reviews, manages and updates inquiry status.</p></div>
+        </div>
+    </div>
+</section>
+<section class="cta-section">
+    <div class="container cta-box"><div><h2>Have a project idea?</h2><p>Tell us what you need and our team will review your inquiry.</p></div><a href="/contact/" class="btn btn-light">Submit Inquiry</a></div>
+</section>
+{% endblock %}
