@@ -1,12 +1,65 @@
-{% extends 'website/base.html' %}
-{% block content %}
-<section class="page-hero"><div class="container"><span class="eyebrow">Our Solutions</span><h1>AI-powered digital solutions for modern business needs.</h1><p>We provide intelligent software solutions that help businesses automate, manage and grow.</p></div></section>
-<section class="section"><div class="container card-grid">
-    <div class="service-card"><div class="card-icon">🤖</div><h3>AI Chatbot Development</h3><p>Custom chatbot systems for customer support, FAQs, lead capture and guided assistance.</p></div>
-    <div class="service-card"><div class="card-icon">🧠</div><h3>AI Virtual Assistant</h3><p>Assistants that help users choose services, understand requirements and submit inquiries.</p></div>
-    <div class="service-card"><div class="card-icon">⚙️</div><h3>Workflow Automation</h3><p>Automated systems for inquiry handling, follow-up management and status tracking.</p></div>
-    <div class="service-card"><div class="card-icon">🌐</div><h3>Web Application Development</h3><p>Professional websites and web applications with forms, dashboards and database features.</p></div>
-    <div class="service-card"><div class="card-icon">📊</div><h3>Business Dashboards</h3><p>Admin dashboards that show inquiries, feedback, client data and business activity.</p></div>
-    <div class="service-card"><div class="card-icon">🔐</div><h3>Secure Admin Systems</h3><p>Password-protected admin areas for managing client inquiries and internal records.</p></div>
-</div></section>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Solutions | Intelligent Business Software</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container nav-wrapper">
+        <a href="/" class="logo"><span class="logo-icon">◆</span>AI Solutions</a>
+        <nav class="nav-menu">
+            <a href="/">Home</a>
+            <a href="/solutions/">Solutions</a>
+            <a href="/case-studies/">Case Studies</a>
+            <a href="/articles/">Articles</a>
+            <a href="/gallery/">Gallery</a>
+            <a href="/events/">Events</a>
+            <a href="/feedback/">Feedback</a>
+            <a href="/assistant/">AI Assistant</a>
+            <a href="/contact/" class="nav-cta">Request Consultation</a>
+        </nav>
+    </div>
+</header>
+<main>
+    {% if messages %}
+        <div class="container messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>AI Solutions</h3>
+            <p>Professional AI-powered software, automation and digital systems for modern businesses.</p>
+        </div>
+        <div>
+            <h4>Company</h4>
+            <a href="/solutions/">Solutions</a>
+            <a href="/case-studies/">Case Studies</a>
+            <a href="/articles/">Articles</a>
+        </div>
+        <div>
+            <h4>Support</h4>
+            <a href="/contact/">Contact</a>
+            <a href="/feedback/">Feedback</a>
+            <a href="/assistant/">AI Assistant</a>
+            <a href="/admin-login/">Admin Login</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>Email: contact@aisolutions.com</p>
+            <p>Location: Kathmandu, Nepal</p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 AI Solutions. All rights reserved.</div>
+</footer>
+</body>
+</html>
