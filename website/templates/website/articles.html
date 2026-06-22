@@ -1,18 +1,38 @@
-{% extends 'website/base.html' %}
-{% block title %}Articles | AI-Solutions{% endblock %}
+{% extends 'base.html' %}
+
 {% block content %}
+
 <section class="page-hero">
-  <p class="eyebrow">Insights</p>
-  <h1>Articles promoting AI-Solutions</h1>
-  <p>Short articles about AI, prototyping and the digital employee experience.</p>
+    <div class="container">
+        <span class="eyebrow">Articles</span>
+        <h1>Insights on AI, automation and digital business systems.</h1>
+        <p>Read short articles about how intelligent software can support modern organisations.</p>
+    </div>
 </section>
-<section class="section grid cards-3">
-  {% for article in articles %}
-  <article class="card">
-    <p class="date">{{ article.date }}</p>
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.summary }}</p>
-  </article>
-  {% endfor %}
+
+<section class="section">
+    <div class="container article-grid">
+        <article class="article-card">
+            <span>AI Chatbots</span>
+            <h3>How AI Chatbots Improve Customer Support</h3>
+            <p>AI chatbots help answer common questions, guide users and reduce manual support workload.</p>
+            <a href="{% url 'contact' %}">Discuss a chatbot project →</a>
+        </article>
+
+        <article class="article-card">
+            <span>Automation</span>
+            <h3>Why Small Businesses Need Digital Automation</h3>
+            <p>Automation helps businesses save time, reduce errors and manage repetitive tasks more efficiently.</p>
+            <a href="{% url 'solutions' %}">View automation services →</a>
+        </article>
+
+        <article class="article-card">
+            <span>Business Systems</span>
+            <h3>Benefits of Client Inquiry Management Systems</h3>
+            <p>A digital inquiry system helps organisations record, organise and respond to customer requirements.</p>
+            <a href="{% url 'contact' %}">Submit your inquiry →</a>
+        </article>
+    </div>
 </section>
+
 {% endblock %}
